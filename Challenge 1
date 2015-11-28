@@ -1,0 +1,48 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	cout << "Enter multiple for Fire: ";
+	int fire;
+	cin >> fire;
+	cout << endl;
+	cout << "Enter multiple for Ice: ";
+	int ice;
+	cin >> ice;
+	cout << endl;
+
+	for (int i = 1; i < 101; i++)
+	{
+		if (i % fire == 0)
+		{
+			if (i % ice == 0)
+			{
+				cout << "Fire and Ice" << endl;
+			}
+			else
+			{
+				cout << "Fire" << endl;
+			}
+		}
+		else if (i % ice == 0)
+		{
+			if (i % fire == 0)
+			{
+				cout << "Fire and Ice" << endl;
+			}
+			else
+			{
+				cout << "Ice" << endl;
+			}
+		}
+		else
+		{
+			cout << i << endl;
+		}
+	}
+	cout << endl;
+
+	return 0;
+}
