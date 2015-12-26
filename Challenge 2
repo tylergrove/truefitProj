@@ -1,0 +1,74 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+
+using namespace std;
+
+int main()
+{
+	char run = 'y';
+
+	while (run == 'y')
+	{
+		vector<int> a;
+		string sequence;
+
+		//Enter the numbers in the sequence
+		cout << "Enter sequence: ";
+		cin >> sequence;
+		cout << endl;
+
+		stringstream ss(sequence);
+
+		int i;
+
+		//Input numbers into vector, ignoring commas and/or spaces
+		while(ss >> i)
+		{
+			a.push_back(i);
+
+			if (ss.peek() == ',' || ss.peek() == ' ')
+			{
+				ss.ignore();
+			}
+		}
+
+		//Find the lowest number
+		int lowest, tempLow;
+		tempLow = a[0];
+		for (int i = 0; i < a.size(); i++)
+		{
+			if (a[i] < tempLow)
+			{
+				tempLow = a[i];
+			}
+		}
+		lowest = tempLow;
+
+		//Find the sum of the range
+		int rangeSum = 0;
+		for (int i = 0; i < a.size() + 1; i++)
+		{
+			rangeSum = rangeSum + (lowest + i);
+		}
+
+		//Find the sum of the numbers in sequence
+		int arraySum = 0;
+		for (int i = 0; i < a.size(); i++)
+		{
+			arraySum += a[i];
+		}
+
+		//Calculate and output missing number
+		int missingNum = rangeSum - arraySum;
+		cout << "Missing number: " << missingNum << endl << endl;
+
+		cout << "Do again? (y/n): ";
+		cin >> run;
+		cout << endl; 
+		cout << "________________________________________________________________________________" << endl << endl;
+	}
+
+	return 0;
+}
