@@ -1,0 +1,7 @@
+left
+instruction1: left
+skip
+goto instruction1
+instruction2: left
+left
+goto instruction2
